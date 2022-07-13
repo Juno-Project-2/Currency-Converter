@@ -1,7 +1,20 @@
 // Pseudo Code!!
-// endangered species
-// API KEY      qyMdg8B7htfh5KfYdW8eFfCvujdi5DUKtbjfuX1uFUkxmTvODo
-// 
+// API KEY      8MRP1EqTA1loXIdomdq0Zf71wBP3vnRS
+// Create form
+    // Create two dropdowns for source currency and target currency options and populate with the currency object
+    // Create field to accept dollar amount for conversion
+    // Create submit button
+// Add event listener to form on submit
+    // on submit, store values of source and target currencies in variables
+    // store dollar amount in variable
+    // do API call to obtain exchange rate
+    // convert dollar amount based on exchange rate (rounded to two decimal places)
+    // append dollar amount and exchange rate to the page
+    // clear form to accept new inputs
+// Error handling
+    // data validation for dollar amount input (numbers only - no strings, rounded to two decimal places)
+    // make all fields required/mandatory
+    // if user selects same currency, display message "The source and target currencies must be different"
 // 
 // 
 // 
