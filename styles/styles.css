@@ -226,6 +226,27 @@ html {
   overflow: hidden;
 }
 
+body {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: url(../assets/world.jpg);
+  background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
 .flexContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -237,11 +258,24 @@ html {
 .flexContainer input,
 .flexContainer select {
   margin: 20px;
+  padding: 10px 20px;
+}
+.flexContainer input {
+  width: 300px;
+}
+.flexContainer input[type=number] {
+  -moz-appearance: textfield;
 }
 .flexContainer button {
   margin: 20px;
+  padding: 10px 20px;
 }
 
 footer {
   text-align: center;
+  color: white;
+}
+
+* {
+  border: solid red 1px;
 }

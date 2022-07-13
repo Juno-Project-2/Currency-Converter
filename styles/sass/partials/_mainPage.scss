@@ -1,3 +1,17 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(../assets/world.jpg); // image from Unsplash (https: //unsplash.com/photos/Xu4Pz7GI9JY)
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
 .flexContainer{
     display: flex;
     justify-content: center;
@@ -5,11 +19,26 @@
     input,
     select{
         margin: 20px;
+        padding: 10px 20px;
     }
+
+    input {
+        width: 300px;
+        &&[type=number]{
+            -moz-appearance: textfield;
+        }
+    }
+
     button{
         margin: 20px;
+        padding: 10px 20px;
     }
 }
 footer{
     text-align: center;
+    color: white;
+}
+
+* {
+    border: solid red 1px;
 }
