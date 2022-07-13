@@ -225,3 +225,23 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.flexContainer input,
+.flexContainer select {
+  margin: 20px;
+}
+.flexContainer button {
+  margin: 20px;
+}
+
+footer {
+  text-align: center;
+}

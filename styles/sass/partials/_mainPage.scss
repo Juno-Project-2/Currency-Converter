@@ -1,0 +1,15 @@
+.flexContainer{
+    display: flex;
+    justify-content: center;
+
+    input,
+    select{
+        margin: 20px;
+    }
+    button{
+        margin: 20px;
+    }
+}
+footer{
+    text-align: center;
+}

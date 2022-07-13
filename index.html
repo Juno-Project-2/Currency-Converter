@@ -17,21 +17,25 @@
     <main>
         <form action="">
             <fieldset>
-
-                <label for="amount" class="sr-only" >Enter the amount you want to convert</label>
-                <input type="number" id="amount" placeholder="Enter the amount you want to convert">
-
-                <select name="sourceCurrency" id="sourceCurrency">
-                    <option value="">Choose your source currency</option>
-                </select>
-                <label for="sourceCurrency"></label>
-
-                <select name="targetCurrency" id="targetCurrency">
-                    <option value="">Choose your target currency</option>
-                    <label for="targetCurrency"></label>
-                </select>
-
-                <button type="submit">Convert</button>
+                
+                <div class="flexContainer">
+                    <label for="amount" class="sr-only" >Enter the amount you want to convert</label>
+                    <input type="number" id="amount" placeholder="Enter the amount you want to convert">
+                    
+                    <select name="sourceCurrency" id="sourceCurrency">
+                        <option value="">Choose your source currency</option>
+                    </select>
+                    <label for="sourceCurrency"></label>
+                    
+                    <select name="targetCurrency" id="targetCurrency">
+                        <option value="">Choose your target currency</option>
+                        <label for="targetCurrency"></label>
+                    </select>
+                </div>
+                    
+                <div class="flexContainer">
+                    <button type="submit">Convert</button>
+                </div>
                 
             </fieldset>
         </form>
