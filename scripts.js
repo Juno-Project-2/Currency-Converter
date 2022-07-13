@@ -4,6 +4,7 @@
     // Create two dropdowns for source currency and target currency options and populate with the currency object
     // Create field to accept dollar amount for conversion
     // Create submit button
+    // prevent default on form
 // Add event listener to form on submit
     // on submit, store values of source and target currencies in variables
     // store dollar amount in variable
@@ -15,11 +16,16 @@
     // data validation for dollar amount input (numbers only - no strings, rounded to two decimal places)
     // make all fields required/mandatory
     // if user selects same currency, display message "The source and target currencies must be different"
-// 
-// 
-// 
-// 
-// 
+    // if the user input a value of 0, display message "You have no money please input a value"
+// Stretch goals
+    // The drop down where you can select different currencies
+    // If the conversion rate gives you more money have money rain down the screen
+    // If the conversion rate gives you less money have potatoes rain down the screen
+    // Display The flags of the common curriencies selected
+    // Display a banner flags that rotates
+    // Display popular places to go in that country as a pop up when you select a currency
+    // A toggle button to switch the order of the curriencies
+//  
 
 const fxApp = {};
 
