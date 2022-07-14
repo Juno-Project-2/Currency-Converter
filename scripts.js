@@ -40,6 +40,9 @@ fxApp.sourceCurrency = document.querySelector('#sourceCurrency');
 fxApp.targetCurrency = document.querySelector('#targetCurrency');
 fxApp.convertButton = document.querySelector('#convert');
 fxApp.form = document.querySelector('form');
+fxApp.inputAmount = document.querySelector('#amount');
+fxApp.results = document.querySelector('.conversion');
+
 
 
 fxApp.populateDropDown = () => {
@@ -64,11 +67,17 @@ fxApp.populateDropDown = () => {
 fxApp.conversion = () => {
     fxApp.form.addEventListener('submit', (e) => {
         e.preventDefault();
-        fxApp.selectedSourceCurrency = fxApp.sourceCurrency.selectedOptions;
-        fxApp.selectedTargetCurrency = fxApp.targetCurrency.selectedOptions;
+        fxApp.selectedSourceCurrency = fxApp.sourceCurrency.selectedOptions[0].value;
+        fxApp.selectedTargetCurrency = fxApp.targetCurrency.selectedOptions[0].value;
 
-        fxApp.sourceCurrencyValue = fxApp.selectedSourceCurrency[0].value;
-        fxApp.targetCurrencyValue = fxApp.selectedTargetCurrency[0].value;
+        fxApp.amountValue =  fxApp.inputAmount.value;
+
+        // console.log(fxApp.getExchangeRate(exchangeRate))
+        if(fxApp.selectedSourceCurrency !== fxApp.selectedTargetCurrency){
+            fxApp.getExchangeRate();
+        }else{
+            alert('Please select different currencies')
+        }
     })
 }
 
@@ -79,18 +88,29 @@ fxApp.getExchangeRate = () => {
     
     fxApp.url.search = new URLSearchParams({
         apikey: '8MRP1EqTA1loXIdomdq0Zf71wBP3vnRS',
-        source: 'CAD',
-        currencies: 'EUR'
+        source: `${fxApp.selectedSourceCurrency}`,
+        currencies: `${fxApp.selectedTargetCurrency}`
     });
-    console.log(url);
     
     fetch(fxApp.url).then(function(response){
         return response.json();
     })
     .then(function(results){
-        const newArray = results;
-        console.log(newArray);
+        fxApp.exchangeRate = results.quotes[`${fxApp.selectedSourceCurrency}${fxApp.selectedTargetCurrency}`];
+        fxApp.convertedAmount = (fxApp.amountValue * fxApp.exchangeRate).toFixed(2);
+
+        fxApp.results.innerHTML = `
+        <h2>Exchange Rate</h2>
+        <p>${fxApp.exchangeRate}</p>
+        <h2>Converted Amount</h2>
+        <p>${fxApp.convertedAmount}</p>
+        `
+        if(fxApp.amountValue <= 0){
+            alert("You have no money please dont travel")
+        }
+
     })
+    
 }
 
 

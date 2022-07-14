@@ -276,6 +276,7 @@ footer {
   color: white;
 }
 
-/* * {
-  border: solid red 1px;
-} */
+.conversion {
+  color: white;
+  text-align: center;
+}
