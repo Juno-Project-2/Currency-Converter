@@ -48,7 +48,6 @@ fxApp.inputAmount = document.querySelector('#amount');
 fxApp.results = document.querySelector('.conversion');
 
 
-
 fxApp.populateDropDown = () => {
     for (let item in fxApp.currencies) {
 
@@ -84,7 +83,6 @@ fxApp.conversion = () => {
         }
     })
 }
-
 
 
 fxApp.getExchangeRate = () => {
