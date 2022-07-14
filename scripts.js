@@ -19,14 +19,16 @@
     // if the user input a value of 0, display message "You have no money please input a value"
     // HTTP status code error
 // Stretch goals
-    // The drop down where you can select different currencies
-    // If the conversion rate gives you more money have money rain down the screen
+    // If the conversion rate gives you more money have money rain down the screen  https://codepen.io/lihz27/pen/bxpEbw
     // If the conversion rate gives you less money have potatoes rain down the screen
-    // Display The flags of the common curriencies selected
+    // Change earth image depending on time of day
+    // Animate the backgroung image
     // Display a banner flags that rotates
-    // Display popular places to go in that country as a pop up when you select a currency
     // A toggle button to switch the order of the curriencies
-    // daniel
+
+    // Display The flags of the common curriencies selected
+    // The drop down where you can select different currencies
+    // Display popular places to go in that country as a pop up when you select a currency
 
 const fxApp = {};
 
