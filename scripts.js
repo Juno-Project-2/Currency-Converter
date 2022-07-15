@@ -1,5 +1,9 @@
 // Pseudo Code!!
 // API KEY      8MRP1EqTA1loXIdomdq0Zf71wBP3vnRS
+// HTML
+// CSS
+    // Responsiveness
+    // Formatting to make text clearer
 // Create form
     // Create two dropdowns for source currency and target currency options and populate with the currency object
     // Create field to accept dollar amount for conversion
