@@ -242,13 +242,79 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: black;
 }
 
-.earth {
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.flexContainer input,
+.flexContainer select {
+  margin: 20px;
+  padding: 10px 20px;
+  z-index: 10;
+}
+.flexContainer input {
+  width: 300px;
+}
+.flexContainer input[type=number] {
+  -moz-appearance: textfield;
+}
+.flexContainer button {
+  margin: 20px;
+  padding: 10px 20px;
+  z-index: 10;
+}
+
+i {
+  color: white;
+  font-size: 1.5rem;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+}
+
+.contentBox {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+footer {
+  text-align: center;
+  color: white;
+  position: fixed;
+  bottom: 0;
+}
+
+.conversion {
+  color: white;
+  text-align: center;
+}
+
+.earthContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 60vw;
+  width: 60vw;
   position: absolute;
-  min-height: 100vw;
+}
+
+.earth {
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   z-index: -10;
   -webkit-animation: rotation 30s infinite linear;
           animation: rotation 30s infinite linear;
@@ -275,52 +341,6 @@ body {
             transform: rotate(359deg);
   }
 }
-h1 {
-  text-align: center;
-  color: white;
-}
-
-.flexContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.flexContainer input,
-.flexContainer select {
-  margin: 20px;
-  padding: 10px 20px;
-}
-.flexContainer input {
-  width: 300px;
-}
-.flexContainer input[type=number] {
-  -moz-appearance: textfield;
-}
-.flexContainer button {
-  margin: 20px;
-  padding: 10px 20px;
-}
-
-i {
-  color: white;
-  font-size: 1.5rem;
-  -webkit-transform: translateY(30px);
-          transform: translateY(30px);
-}
-
-footer {
-  text-align: center;
-  color: white;
-}
-
-.conversion {
-  color: white;
-  text-align: center;
-}
-
 .money {
   text-align: center;
   position: absolute;
