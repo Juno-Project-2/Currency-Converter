@@ -1,3 +1,14 @@
+// Weekend To do
+// Alice
+    // Display a banner flags that rotates
+    // Display currency symbol
+    // Change animations
+
+// Daniel
+    // Display popular places to go in that country as a pop up when you select a currency
+    // Make it responsive
+    // A toggle button to switch the order of the curriencies
+
 // Pseudo Code!!
 // API KEY      0TxOJPZBjOQJObJ8ov6Wv6j8VpIO9w4I
 // HTML
@@ -27,14 +38,16 @@
     // If the conversion rate gives you more money have money rain down the screen  https://codepen.io/lihz27/pen/bxpEbw ✅
     // If the conversion rate gives you less money have potatoes rain down the screen ✅
     // Change earth image depending on time of day ✅
+    // Animate the backgroung image ✅
 
-    // Animate the backgroung image
     // Display a banner flags that rotates
     // A toggle button to switch the order of the curriencies
+    // Display currency symbol
+
+    // Display popular places to go in that country as a pop up when you select a currency
 
     // Display The flags of the common curriencies selected
     // The drop down where you can select different currencies
-    // Display popular places to go in that country as a pop up when you select a currency
 
 const fxApp = {};
 
