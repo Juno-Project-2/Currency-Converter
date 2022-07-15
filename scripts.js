@@ -1,5 +1,5 @@
 // Pseudo Code!!
-// API KEY      8MRP1EqTA1loXIdomdq0Zf71wBP3vnRS
+// API KEY      0TxOJPZBjOQJObJ8ov6Wv6j8VpIO9w4I
 // HTML
 // CSS
     // Responsiveness
@@ -82,8 +82,9 @@ fxApp.conversion = () => {
 
         // console.log(fxApp.getExchangeRate(exchangeRate))
         if(fxApp.selectedSourceCurrency !== fxApp.selectedTargetCurrency){
+            fxApp.moneyLoader.classList.remove('money');
+            fxApp.moneyLoader.classList.remove('potato');
             fxApp.getExchangeRate();
-            fxApp.makeItRain();
         }else{
             alert('Please select different currencies')
         }
@@ -91,8 +92,10 @@ fxApp.conversion = () => {
 }
 
 fxApp.makeItRain = () => {
-    if (fxApp.inputAmount < fxApp.amountValue){
-        fxApp.moneyLoader.toggleAttribute('.loader');
+    if (fxApp.convertedAmount > fxApp.amountValue){
+        fxApp.moneyLoader.classList.add('money');
+    } else{
+        fxApp.moneyLoader.classList.add('potato');
     }
 }
 
@@ -101,7 +104,7 @@ fxApp.getExchangeRate = () => {
     fxApp.url = new URL("https://api.apilayer.com/currency_data/live");
     
     fxApp.url.search = new URLSearchParams({
-        apikey: '8MRP1EqTA1loXIdomdq0Zf71wBP3vnRS',
+        apikey: '0TxOJPZBjOQJObJ8ov6Wv6j8VpIO9w4I',
         source: `${fxApp.selectedSourceCurrency}`,
         currencies: `${fxApp.selectedTargetCurrency}`
     });
@@ -127,6 +130,8 @@ fxApp.getExchangeRate = () => {
         if(fxApp.amountValue <= 0){
             alert("You have no money please dont travel")
         }
+
+        fxApp.makeItRain();
 
     })
     .catch(err => {
