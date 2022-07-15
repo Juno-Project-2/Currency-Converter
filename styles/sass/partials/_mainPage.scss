@@ -1,3 +1,11 @@
+// * {
+//     border: solid red 1px;
+// }
+
+html {
+  font-size: 125%;
+}
+
 body {
     height: 100vh;
     display: flex;
@@ -34,6 +42,13 @@ h1 {
         padding: 10px 20px;
     }
 }
+
+i {
+  color: white;
+  font-size: 1.5rem;
+  transform: translateY(30px);
+}
+
 footer{
     text-align: center;
     color: white;
@@ -44,14 +59,14 @@ footer{
     text-align: center;
 }
 
-// * {
-//     border: solid red 1px;
-// }
-
 body{
     position: relative;
 }
 
+// spin image
+
+
+// make it rain animation
 .money {
     text-align: center;
     position: absolute;

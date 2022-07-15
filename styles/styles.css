@@ -226,6 +226,10 @@ html {
   overflow: hidden;
 }
 
+html {
+  font-size: 125%;
+}
+
 body {
   height: 100vh;
   display: -webkit-box;
@@ -269,6 +273,13 @@ h1 {
 .flexContainer button {
   margin: 20px;
   padding: 10px 20px;
+}
+
+i {
+  color: white;
+  font-size: 1.5rem;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
 }
 
 footer {
