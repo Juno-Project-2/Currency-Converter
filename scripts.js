@@ -50,6 +50,7 @@ fxApp.convertButton = document.querySelector('#convert');
 fxApp.form = document.querySelector('form');
 fxApp.inputAmount = document.querySelector('#amount');
 fxApp.results = document.querySelector('.conversion');
+fxApp.moneyLoader = document.querySelector('#loader');
 
 
 fxApp.populateDropDown = () => {
@@ -82,10 +83,17 @@ fxApp.conversion = () => {
         // console.log(fxApp.getExchangeRate(exchangeRate))
         if(fxApp.selectedSourceCurrency !== fxApp.selectedTargetCurrency){
             fxApp.getExchangeRate();
+            fxApp.makeItRain();
         }else{
             alert('Please select different currencies')
         }
     })
+}
+
+fxApp.makeItRain = () => {
+    if (fxApp.inputAmount < fxApp.amountValue){
+        fxApp.moneyLoader.toggleAttribute('.loader');
+    }
 }
 
 
