@@ -11,8 +11,31 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url(../assets/world.jpg); // image from Unsplash (https: //unsplash.com/photos/Xu4Pz7GI9JY)
-    background-size: cover;
+    background-color: black;
+    // background-image: url(../assets/world.jpg); // image from Unsplash (https: //unsplash.com/photos/Xu4Pz7GI9JY)
+    // background-size: cover;
+}
+
+.earth {
+  // content: '';
+  // background-image: url(../assets/world.jpg); // image from Unsplash (https: //unsplash.com/photos/Xu4Pz7GI9JY)
+  // background-size: cover;
+  position: absolute;
+  min-height: 100vw;
+  width: 100%;
+  // background-position: center;
+  z-index: -10;
+  animation: rotation 30s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 h1 {
