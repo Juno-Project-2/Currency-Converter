@@ -1,3 +1,9 @@
+// Weekend To do
+// Daniel
+    // Make it responsive
+    // Display popular places to go in that country as a pop up when you select a currency
+    // A toggle button to switch the order of the curriencies
+
 // Pseudo Code!!
 // API KEY      0TxOJPZBjOQJObJ8ov6Wv6j8VpIO9w4I
 // HTML

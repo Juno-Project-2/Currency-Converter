@@ -482,3 +482,27 @@ footer {
     -webkit-transform: translate(150px, 1200px) rotateZ(580deg);
   }
 }
+@media (max-width: 1200px) {
+  .flexContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .flexContainer input[type=number] {
+    text-align: center;
+    margin: 20px auto;
+  }
+  .flexContainer select {
+    margin: 20px auto;
+  }
+  .flexContainer i {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    text-align: center;
+  }
+  .earthContainer {
+    height: 100vw;
+    width: 100vh;
+  }
+}

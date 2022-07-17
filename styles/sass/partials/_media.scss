@@ -1,0 +1,24 @@
+@media (max-width: 1200px) {
+    .flexContainer{
+        flex-direction: column;
+
+        input[type=number]{
+            text-align: center;
+            margin: 20px auto;
+        }
+    
+        select{
+            margin: 20px auto;
+        }
+
+        i{
+            transform: rotate(90deg);
+            text-align: center;
+        }
+    }
+
+    .earthContainer{
+        height: 100vw;
+        width: 100vh;
+    }
+}
