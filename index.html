@@ -16,7 +16,8 @@
     <div class="earthContainer">
         <img class="earth" src="./assets/world.jpg" alt="A picture of the earth at night">
     </div>
-    <div id="loader" class="money"> <!-- remove class="money" -->
+    <div id="loader"> <!-- remove class="money" -->
+        <span id="firstAnimatedSpan"></span>
         <span></span>
         <span></span>
         <span></span>
@@ -48,8 +49,7 @@
         <span></span>
         <span></span>
         <span></span>
-        <span></span>
-        <span></span>
+        <span id="lastAnimatedSpan"></span>
     </div>
     <div class="contentBox">
         <header>
@@ -61,6 +61,7 @@
                 <fieldset>
 
                     <div class="flexContainer">
+                        <span class="sourceSymbolContainer"></span>
                         <label for="amount" class="sr-only">Enter amount to convert</label>
                         <input type="number" id="amount" placeholder="Enter amount to convert" required>
 

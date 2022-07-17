@@ -1,9 +1,12 @@
 // Weekend To do
 // Alice
-    // Display currency symbol
-    // Add flags upon click
+    // Add flags upon selection/click instead of submit
+    // Afghani currency symbol displays after the amount instead of before...
+
     // Change animations ✅
     // Added flags upon submit ✅
+    // Format flag aspect ratio ✅
+    // Display currency symbols ✅
     // Display a banner flags that rotates
 
 // Daniel
@@ -37,13 +40,15 @@
     // HTTP status code error
 
 // Stretch goals
+    // remove fieldset
+    // loader while waiting for fetch    
+    // other styling
+    // organize code
+    
     // If the conversion rate gives you more money have money rain down the screen  https://codepen.io/lihz27/pen/bxpEbw ✅
     // If the conversion rate gives you less money have potatoes rain down the screen ✅
     // Change earth image depending on time of day ✅
     // Animate the backgroung image ✅
-    // remove fieldset
-    // other styling
-    // organize code
 
     // Display a banner flags that rotates
     // A toggle button to switch the order of the curriencies
@@ -52,7 +57,7 @@
     // Display popular places to go in that country as a pop up when you select a currency
 
     // Display The flags of the common curriencies selected
-    // The drop down where you can select different currencies
+    // The drop down where you can select different currencies based on the API
 
 const fxApp = {};
 
@@ -73,7 +78,9 @@ fxApp.form = document.querySelector('form');
 fxApp.inputAmount = document.querySelector('#amount');
 fxApp.results = document.querySelector('.conversion');
 fxApp.moneyLoader = document.querySelector('#loader');
-fxApp.animationSpan = document.querySelector('span');
+fxApp.lastAnimatedSpan = document.querySelector('#lastAnimatedSpan');
+fxApp.firstAnimatedSpan = document.querySelector('#firstAnimatedSpan');
+fxApp.sourceSymbolContainer = document.querySelector('.sourceSymbolContainer');
 
 fxApp.populateDropDown = () => {
     for (let item in fxApp.currencies) {
@@ -94,7 +101,7 @@ fxApp.populateDropDown = () => {
     }
 }
 
-fxApp.conversion = () => {
+fxApp.conversion = () => { //call this function something else since it's not actually doing the conversion (e.g., getUserInputs)
     fxApp.form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -109,7 +116,8 @@ fxApp.conversion = () => {
         fxApp.amountValue =  fxApp.inputAmount.value;
 
         if(fxApp.selectedSourceCurrency !== fxApp.selectedTargetCurrency){
-
+            fxApp.getSourceFlag(fxApp.selectedSourceCurrency);
+            fxApp.getTargetFlag(fxApp.selectedTargetCurrency);
             fxApp.getExchangeRate();
         }else{
             alert('Please select different currencies')
@@ -118,8 +126,11 @@ fxApp.conversion = () => {
 }
 
 fxApp.makeItRainListener = () => {
-    fxApp.animationSpan.addEventListener('animationend', () => {
-        fxApp.moneyLoader.style.zIndex = "0";
+    fxApp.lastAnimatedSpan.addEventListener('animationend', () => {
+        fxApp.moneyLoader.style.zIndex = "-10";
+    });
+    fxApp.firstAnimatedSpan.addEventListener('animationstart', () => {
+        fxApp.moneyLoader.style.zIndex = "10";
     });
 }
 
@@ -129,6 +140,56 @@ fxApp.makeItRain = () => {
     } else{
         fxApp.moneyLoader.classList.add('potato');
     }
+}
+
+fxApp.getSourceFlag = (currencyCode) => {
+    fxApp.urlFlag = new URL(`https://restcountries.com/v3.1/currency/${currencyCode}`);
+
+    fetch(fxApp.urlFlag).then(function (response) {
+        if (response.ok) {
+            return response.json();
+        }
+    })
+        .then(function (results) {
+            // console.log(results);
+            fxApp.sourceSymbol = results[0].currencies[currencyCode].symbol;
+            results.forEach(country => {
+                fxApp.flagURL = country.flags.png;
+                fxApp.divEl = document.createElement('div');
+                fxApp.divEl.style.width = '30px';
+                fxApp.divEl.style.height = '20px';
+                fxApp.divEl.innerHTML = `
+                <img src=${fxApp.flagURL}>;
+                `;
+                fxApp.sourceFlags.append(fxApp.divEl);
+            })
+        })
+}
+
+fxApp.getTargetFlag = (currencyCode) => {
+    fxApp.urlFlag = new URL(`https://restcountries.com/v3.1/currency/${currencyCode}`);
+
+    fetch(fxApp.urlFlag).then(function (response) {
+        if (response.ok) {
+            return response.json();
+        }
+    })
+        .then(function (results) {
+            // console.log(results);
+            // console.log(results[0].currencies[currencyCode].symbol);
+            fxApp.targetSymbol = results[0].currencies[currencyCode].symbol;
+            results.forEach(country => {
+                fxApp.flagURL = country.flags.png;
+                fxApp.divEl = document.createElement('div');
+                fxApp.divEl.style.width = '30px';
+                fxApp.divEl.style.height = '20px';
+                fxApp.divEl.style.margin = '5px';
+                fxApp.divEl.innerHTML = `
+                <img src=${fxApp.flagURL}>
+                `;
+                fxApp.targetFlags.append(fxApp.divEl);
+            });
+        })
 }
 
 fxApp.getExchangeRate = () => {
@@ -151,20 +212,18 @@ fxApp.getExchangeRate = () => {
         fxApp.exchangeRate = results.quotes[`${fxApp.selectedSourceCurrency}${fxApp.selectedTargetCurrency}`];
         fxApp.convertedAmount = (fxApp.amountValue * fxApp.exchangeRate).toFixed(2);
 
+        fxApp.sourceSymbolContainer.innerText = fxApp.sourceSymbol;
 
         fxApp.results.innerHTML = `
         <h2>Exchange Rate</h2>
         <p>${fxApp.exchangeRate}</p>
         <h2>Converted Amount</h2>
-        <p>${fxApp.convertedAmount}</p>
+        <p>${fxApp.targetSymbol} ${fxApp.convertedAmount}</p>
         `;
 
-        fxApp.getSourceFlag(fxApp.selectedSourceCurrency);
-        fxApp.getTargetFlag(fxApp.selectedTargetCurrency);
-
         if(fxApp.amountValue <= 0){
-            alert("You have no money. Please dont travel")
-        } // move this outside of the fetch - do not execute fetch if this condition is met (avoids unnecessary API pull)
+            alert("You have no money. Please don't travel")
+        } // move this outside of the fetch - maybe conditional in the init with the fxApp.conversion function inside - do not execute fetch if this condition is met (avoids unnecessary API pull)
         fxApp.makeItRain();
         fxApp.makeItRainListener();
     })
@@ -178,46 +237,6 @@ fxApp.getExchangeRate = () => {
     })
 }
 
-
-fxApp.getSourceFlag = (currencyCode) => {
-    fxApp.urlFlag = new URL(`https://restcountries.com/v3.1/currency/${currencyCode}`);
-
-    fetch(fxApp.urlFlag).then(function (response) {
-        if (response.ok) {
-            return response.json();
-        }
-    })
-        .then(function (results) {
-            results.forEach(country => {
-                fxApp.flagURL = country.flags.png;
-                fxApp.imgEl = document.createElement('img')
-                fxApp.imgEl.src = fxApp.flagURL;
-                fxApp.imgEl.style.width = '25px';
-                fxApp.imgEl.style.height = '15px';
-                fxApp.sourceFlags.append(fxApp.imgEl);
-            })
-        })
-}
-
-fxApp.getTargetFlag = (currencyCode) => {
-    fxApp.urlFlag = new URL(`https://restcountries.com/v3.1/currency/${currencyCode}`);
-
-    fetch(fxApp.urlFlag).then(function (response) {
-        if (response.ok) {
-            return response.json();
-        }
-    })
-        .then(function (results) {
-            results.forEach(country => {
-                fxApp.flagURL = country.flags.png;
-                fxApp.imgEl = document.createElement('img')
-                fxApp.imgEl.src = fxApp.flagURL;
-                fxApp.imgEl.style.width = '20px';
-                fxApp.imgEl.style.height = '10px';
-                fxApp.targetFlags.append(fxApp.imgEl);
-            })
-        })
-}
 
 fxApp.timeOfDay = () => {
     const currentDate = new Date();
