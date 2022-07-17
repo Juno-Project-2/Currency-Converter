@@ -3,7 +3,7 @@
 // }
 
 html {
-  font-size: 125%;
+    font-size: 125%;
 }
 
 body {
@@ -15,7 +15,6 @@ body {
     background-color: black;
     // background-image: url(../assets/world.jpg); // image from Unsplash (https: //unsplash.com/photos/Xu4Pz7GI9JY)
     // background-size: cover;
-
 }
 
 
@@ -29,10 +28,17 @@ h1 {
     justify-content: center;
 
     input,
-    select{
+    .currencyContainer,
+    button {
         margin: 20px;
+        position: relative;
+    }
+    
+    input,
+    select,
+    button {
+        height: 50px;
         padding: 10px 20px;
-        z-index: 10;
     }
 
     input {
@@ -42,21 +48,24 @@ h1 {
         }
     }
 
-    button{
-        margin: 20px;
-        padding: 10px 20px;
-        z-index: 10;
+    button {
+        width: 300px;
     }
 }
 
+.targetFlags,
+.sourceFlags {
+    position: absolute;
+}
+
 i {
-  color: white;
-  font-size: 1.5rem;
-  transform: translateY(30px);
+    color: white;
+    font-size: 1.5rem;
+    transform: translateY(30px);
 }
 
 .contentBox {
-  background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7);
   // z-index: -20;
 }
 

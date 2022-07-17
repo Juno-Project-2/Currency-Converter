@@ -262,10 +262,16 @@ h1 {
           justify-content: center;
 }
 .flexContainer input,
-.flexContainer select {
+.flexContainer .currencyContainer,
+.flexContainer button {
   margin: 20px;
+  position: relative;
+}
+.flexContainer input,
+.flexContainer select,
+.flexContainer button {
+  height: 50px;
   padding: 10px 20px;
-  z-index: 10;
 }
 .flexContainer input {
   width: 300px;
@@ -274,9 +280,12 @@ h1 {
   -moz-appearance: textfield;
 }
 .flexContainer button {
-  margin: 20px;
-  padding: 10px 20px;
-  z-index: 10;
+  width: 300px;
+}
+
+.targetFlags,
+.sourceFlags {
+  position: absolute;
 }
 
 i {
@@ -306,18 +315,19 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 60vw;
-  width: 60vw;
+  height: 80vw;
+  width: 80vw;
   position: absolute;
+  overflow: hidden;
+  z-index: -10;
 }
 
 .earth {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  z-index: -10;
-  -webkit-animation: rotation 30s infinite linear;
-          animation: rotation 30s infinite linear;
+  -webkit-animation: rotation 120s infinite linear;
+          animation: rotation 120s infinite linear;
 }
 
 @-webkit-keyframes rotation {
@@ -341,10 +351,13 @@ footer {
             transform: rotate(359deg);
   }
 }
-.money {
+.money,
+.potato {
   text-align: center;
   position: absolute;
   height: 100vh;
+  overflow: hidden;
+  z-index: 10;
 }
 
 .money span {
@@ -352,133 +365,146 @@ footer {
   margin: -280px 40px 54px -34px;
   background: url("https://cdn.theatlantic.com/assets/media/img/posts/Screen%20Shot%202013-10-08%20at%209.13.38%20AM.png");
   background-size: contain;
-  -webkit-animation: money 5s linear;
-  -moz-animation: money 5s linear;
+  -webkit-animation: money 4s linear infinite;
+  -moz-animation: money 4s linear;
+  width: 200px;
+  height: 100px;
+  opacity: 0;
 }
 
 .money span:nth-child(5n+5) {
-  -webkit-animation-delay: 1.3s;
-  -moz-animation-delay: 1.3s;
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  background-image: url(../assets/yen.png);
 }
 
 .money span:nth-child(3n+2) {
-  -webkit-animation-delay: 1.5s;
-  -moz-animation-delay: 1.5s;
+  -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
 }
 
 .money span:nth-child(2n+5) {
-  -webkit-animation-delay: 1.7s;
-  -moz-animation-delay: 1.7s;
+  -webkit-animation-delay: 0.9s;
+  -moz-animation-delay: 0.9s;
+  background-image: url(../assets/canadian-dollar.png);
+  -webkit-transform: rotateZ(-45deg);
+  -webkit-transform: rotateY(25deg);
 }
 
 .money span:nth-child(3n+10) {
-  -webkit-animation-delay: 2s;
-  -moz-animation-delay: 2s;
+  -webkit-animation-delay: 1.1s;
+  -moz-animation-delay: 1.1s;
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
 }
 
 .money span:nth-child(7n+2) {
-  -webkit-animation-delay: 2.5s;
-  -moz-animation-delay: 2.5s;
+  -webkit-animation-delay: 1.3s;
+  -moz-animation-delay: 1.3s;
+  -webkit-transform: rotateZ(200deg);
+          transform: rotateZ(200deg);
 }
 
 .money span:nth-child(4n+5) {
-  -webkit-animation-delay: 2.8s;
-  -moz-animation-delay: 2.8s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  -webkit-transform: rotateZ(80deg);
+          transform: rotateZ(80deg);
 }
 
 .money span:nth-child(3n+7) {
-  -webkit-animation-delay: 3s;
-  -moz-animation-delay: 3s;
+  -webkit-animation-delay: 1.7s;
+  -moz-animation-delay: 1.7s;
+  -webkit-transform: rotateY(25deg);
+          transform: rotateY(25deg);
+}
+
+.money span:nth-child(3n+7) {
+  -webkit-animation-delay: 1.9s;
+  -moz-animation-delay: 1.9s;
+  -webkit-transform: rotateZ(-20deg);
+          transform: rotateZ(-20deg);
 }
 
 @-webkit-keyframes money {
   0% {
-    width: 200px;
-    height: 200px;
     opacity: 1;
-    -webkit-transform: translate(0, 0px) rotateZ(0deg);
+    -webkit-transform: translate(0px, 0px) rotateZ(0deg) rotateY(270deg);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: translate(75px, 600px) rotateZ(360deg) rotateY(540deg);
   }
   75% {
-    width: 200px;
-    height: 200px;
     opacity: 1;
-    -webkit-transform: translate(100px, 1000px) rotateZ(360deg);
+    -webkit-transform: translate(125px, 1000px) rotateZ(540deg) rotateY(300deg);
   }
   100% {
-    width: 200px;
-    height: 200px;
     opacity: 0;
-    -webkit-transform: translate(150px, 1200px) rotateZ(580deg);
+    -webkit-transform: translate(150px, 1200px) rotateZ(700deg);
   }
 }
-.potato {
-  text-align: center;
-  position: absolute;
-  height: 100vh;
-}
-
 .potato span {
   display: inline-block;
   margin: -280px 40px 54px -34px;
   background: url("../assets/potato-png-transparent-6.png");
   background-size: contain;
   background-repeat: no-repeat;
-  -webkit-animation: potato 5s linear;
-  -moz-animation: potato 5s linear;
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+  -webkit-animation: potato 2s cubic-bezier(0.12, 0.04, 0.55, 0.09);
+  -moz-animation: potato 2s ease-in;
 }
 
 .potato span:nth-child(5n+5) {
-  -webkit-animation-delay: 1.3s;
-  -moz-animation-delay: 1.3s;
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
 }
 
 .potato span:nth-child(3n+2) {
-  -webkit-animation-delay: 1.5s;
-  -moz-animation-delay: 1.5s;
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
 }
 
 .potato span:nth-child(2n+5) {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+}
+
+.potato span:nth-child(3n+10) {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+}
+
+.potato span:nth-child(7n+2) {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+}
+
+.potato span:nth-child(4n+5) {
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+}
+
+.potato span:nth-child(3n+7) {
   -webkit-animation-delay: 1.7s;
   -moz-animation-delay: 1.7s;
 }
 
-.potato span:nth-child(3n+10) {
-  -webkit-animation-delay: 2s;
-  -moz-animation-delay: 2s;
-}
-
-.potato span:nth-child(7n+2) {
-  -webkit-animation-delay: 2.5s;
-  -moz-animation-delay: 2.5s;
-}
-
-.potato span:nth-child(4n+5) {
-  -webkit-animation-delay: 2.8s;
-  -moz-animation-delay: 2.8s;
-}
-
-.potato span:nth-child(3n+7) {
-  -webkit-animation-delay: 3s;
-  -moz-animation-delay: 3s;
-}
-
 @-webkit-keyframes potato {
   0% {
-    width: 200px;
-    height: 200px;
     opacity: 1;
     -webkit-transform: translate(0, 0px) rotateZ(0deg);
   }
   75% {
-    width: 200px;
-    height: 200px;
     opacity: 1;
     -webkit-transform: translate(100px, 1000px) rotateZ(360deg);
   }
   100% {
-    width: 200px;
-    height: 200px;
-    opacity: 0;
+    opacity: 1;
     -webkit-transform: translate(150px, 1200px) rotateZ(580deg);
   }
 }
