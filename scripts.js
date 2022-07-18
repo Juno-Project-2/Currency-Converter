@@ -1,10 +1,13 @@
+// https://restcountries.com/#api-endpoints-v3-currency
+
 // Weekend To do
 // Alice
     // Add flags upon selection/click instead of submit
     // Afghani currency symbol displays after the amount instead of before...
+    // flag section formatting
 
     // Change animations ✅
-    // Added flags upon submit ✅
+    // Add flags upon submit ✅
     // Format flag aspect ratio ✅
     // Display currency symbols ✅
     // Display a banner flags that rotates
@@ -40,16 +43,19 @@
     // HTTP status code error
 
 // Stretch goals
+    // merge our files and then work on main?
     // remove fieldset
-    // loader while waiting for fetch    
-    // other styling
     // organize code
+    // other styling
+    // loader while waiting for fetch    
+
     
     // If the conversion rate gives you more money have money rain down the screen  https://codepen.io/lihz27/pen/bxpEbw ✅
     // If the conversion rate gives you less money have potatoes rain down the screen ✅
     // Change earth image depending on time of day ✅
     // Animate the backgroung image ✅
 
+    // add alt text for any images/put aria hidden=true for images intended to be background image
     // Display a banner flags that rotates
     // A toggle button to switch the order of the curriencies
     // Display currency symbol
