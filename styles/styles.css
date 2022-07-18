@@ -302,6 +302,11 @@ footer {
   text-align: center;
 }
 
+button {
+  background: none;
+  border: none;
+}
+
 .earthContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -504,5 +509,10 @@ footer {
   .earthContainer {
     height: 100vw;
     width: 100vh;
+  }
+}
+@media (max-width: 400px) {
+  .flexContainer select {
+    width: 102%;
   }
 }
