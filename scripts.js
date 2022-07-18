@@ -3,7 +3,6 @@
     // Make it responsive ✅
     // A toggle button to switch the order of the curriencies ✅
     // Display popular places to go in that country as a pop up when you select a currency
-=======
 // Alice
     // Display a banner flags that rotates
     // Display currency symbol
