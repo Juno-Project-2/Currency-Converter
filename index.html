@@ -58,7 +58,6 @@
 
         <main>
             <form action="">
-                <fieldset>
 
                     <div class="flexContainer">
                         <span class="sourceSymbolContainer"><!-- source currency symbol goes here --></span>
@@ -75,27 +74,19 @@
                             </div>
                         </div>
 
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                        <div class="currencyContainer">
-                            <select name="targetCurrency" id="targetCurrency" required>
-                                <option value="">Choose your target currency</option>
-                            </select>
-                        <select name="sourceCurrency" id="sourceCurrency" required>
-                            <option value="">Choose your source currency</option>
-                            <label for="sourceCurrency"></label>
-                        </select>
-
                         <button type="button" class="switch">
                             <i class="fa-solid fa-arrow-right"></i>
                         </button> 
 
-                        <select name="targetCurrency" id="targetCurrency" required>
-                            <option value="">Choose your target currency</option>
+                        
+                        <div class="currencyContainer">
+                            <select name="targetCurrency" id="targetCurrency" required>
+                                <option value="">Choose your target currency</option>
+                            </select>
                             <label for="targetCurrency"></label>
                             <div class="targetFlags">
-                                <!-- flag images go here -->
-                            </div>
+                            <!-- flag images go here -->
+                        </div>
                         </div> <!-- end of targetCurrencyContainer -->
                     </div> <!--end of flexContainer-->
 
@@ -103,7 +94,6 @@
                         <button id="convert" type="submit">Convert</button>
                     </div>
 
-                </fieldset>
             </form>
         </main>
 

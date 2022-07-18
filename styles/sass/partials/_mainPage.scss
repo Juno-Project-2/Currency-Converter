@@ -1,6 +1,6 @@
-* {
-    border: solid red 1px;
-}
+// * {
+//     border: solid red 1px;
+// }
 
 html {
     font-size: 125%;
@@ -80,7 +80,8 @@ img {
 i {
     color: white;
     font-size: 1.5rem;
-    transform: translateY(30px);
+    // transform: translateY(30px);
+    text-align: center;
 }
 
 .contentBox {
@@ -101,7 +102,14 @@ footer{
     text-align: center;
 }
 
-.switch {
+.flexContainer .switch {
     background: none;
     border: none;
+    width: 10px;
+    margin: 0 10px;
+    transform: translateY(25px);
+}
+
+.flexContainer .currencyContainer{
+    margin-right: 0;
 }
