@@ -5,10 +5,14 @@
     // Make it responsive ✅
     // A toggle button to switch the order of the curriencies ✅
     // Display popular places to go in that country as a pop up when you select a currency
+
+
 // Alice
     // Add flags upon selection/click instead of submit
     // Afghani currency symbol displays after the amount instead of before...
     // flag section formatting
+    // style flag in css instead of js
+    // results display
 
     // Change animations ✅
     // Add flags upon submit ✅
