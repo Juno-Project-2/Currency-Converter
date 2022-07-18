@@ -1,12 +1,20 @@
+// https://restcountries.com/#api-endpoints-v3-currency
+
 // Weekend To do
 // Daniel
     // Make it responsive ✅
     // A toggle button to switch the order of the curriencies ✅
     // Display popular places to go in that country as a pop up when you select a currency
 // Alice
+    // Add flags upon selection/click instead of submit
+    // Afghani currency symbol displays after the amount instead of before...
+    // flag section formatting
+
+    // Change animations ✅
+    // Add flags upon submit ✅
+    // Format flag aspect ratio ✅
+    // Display currency symbols ✅
     // Display a banner flags that rotates
-    // Display currency symbol
-    // Change animations
 
 // Pseudo Code!!
 // API KEY      0TxOJPZBjOQJObJ8ov6Wv6j8VpIO9w4I
@@ -34,11 +42,19 @@
     // HTTP status code error
 
 // Stretch goals
+    // merge our files and then work on main?
+    // remove fieldset
+    // organize code
+    // other styling
+    // loader while waiting for fetch    
+
+    
     // If the conversion rate gives you more money have money rain down the screen  https://codepen.io/lihz27/pen/bxpEbw ✅
     // If the conversion rate gives you less money have potatoes rain down the screen ✅
     // Change earth image depending on time of day ✅
     // Animate the backgroung image ✅
 
+    // add alt text for any images/put aria hidden=true for images intended to be background image
     // Display a banner flags that rotates
     // A toggle button to switch the order of the curriencies
     // Display currency symbol
@@ -46,7 +62,7 @@
     // Display popular places to go in that country as a pop up when you select a currency
 
     // Display The flags of the common curriencies selected
-    // The drop down where you can select different currencies
+    // The drop down where you can select different currencies based on the API
 
 const fxApp = {};
 
@@ -62,11 +78,15 @@ fxApp.currencies = {AED: "United Arab Emirates Dirham", AFN: "Afghan Afghani", A
 fxApp.background = document.querySelector('.earth');
 fxApp.sourceCurrency = document.querySelector('#sourceCurrency');
 fxApp.targetCurrency = document.querySelector('#targetCurrency');
-fxApp.convertButton = document.querySelector('#convert');
+fxApp.sourceFlags = document.querySelector('.sourceFlags');
+fxApp.targetFlags = document.querySelector('.targetFlags');
 fxApp.form = document.querySelector('form');
 fxApp.inputAmount = document.querySelector('#amount');
 fxApp.results = document.querySelector('.conversion');
 fxApp.moneyLoader = document.querySelector('#loader');
+fxApp.lastAnimatedSpan = document.querySelector('#lastAnimatedSpan');
+fxApp.firstAnimatedSpan = document.querySelector('#firstAnimatedSpan');
+fxApp.sourceSymbolContainer = document.querySelector('.sourceSymbolContainer');
 fxApp.buttonSwitch = document.querySelector('.switch');
 
 
@@ -105,18 +125,23 @@ fxApp.populateDropDown = () => {
     }
 }
 
-fxApp.conversion = () => {
+fxApp.conversion = () => { //call this function something else since it's not actually doing the conversion (e.g., getUserInputs)
     fxApp.form.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        // clear prior data
+        fxApp.sourceFlags.innerHTML = '';
+        fxApp.targetFlags.innerHTML = '';
+        fxApp.moneyLoader.classList.remove('money');
+        fxApp.moneyLoader.classList.remove('potato');
+        
         fxApp.selectedSourceCurrency = fxApp.sourceCurrency.selectedOptions[0].value;
         fxApp.selectedTargetCurrency = fxApp.targetCurrency.selectedOptions[0].value;
-
         fxApp.amountValue =  fxApp.inputAmount.value;
 
-        // console.log(fxApp.getExchangeRate(exchangeRate))
         if(fxApp.selectedSourceCurrency !== fxApp.selectedTargetCurrency){
-            fxApp.moneyLoader.classList.remove('money');
-            fxApp.moneyLoader.classList.remove('potato');
+            fxApp.getSourceFlag(fxApp.selectedSourceCurrency);
+            fxApp.getTargetFlag(fxApp.selectedTargetCurrency);
             fxApp.getExchangeRate();
         }else{
             alert('Please select different currencies')
@@ -124,14 +149,72 @@ fxApp.conversion = () => {
     })
 }
 
+fxApp.makeItRainListener = () => {
+    fxApp.lastAnimatedSpan.addEventListener('animationend', () => {
+        fxApp.moneyLoader.style.zIndex = "-10";
+    });
+    fxApp.firstAnimatedSpan.addEventListener('animationstart', () => {
+        fxApp.moneyLoader.style.zIndex = "10";
+    });
+}
+
 fxApp.makeItRain = () => {
-    if (fxApp.convertedAmount > fxApp.amountValue){
+    if (Number(fxApp.convertedAmount) > Number(fxApp.amountValue)){
         fxApp.moneyLoader.classList.add('money');
     } else{
         fxApp.moneyLoader.classList.add('potato');
     }
 }
 
+fxApp.getSourceFlag = (currencyCode) => {
+    fxApp.urlFlag = new URL(`https://restcountries.com/v3.1/currency/${currencyCode}`);
+
+    fetch(fxApp.urlFlag).then(function (response) {
+        if (response.ok) {
+            return response.json();
+        }
+    })
+        .then(function (results) {
+            // console.log(results);
+            fxApp.sourceSymbol = results[0].currencies[currencyCode].symbol;
+            results.forEach(country => {
+                fxApp.flagURL = country.flags.png;
+                fxApp.divEl = document.createElement('div');
+                fxApp.divEl.style.width = '30px';
+                fxApp.divEl.style.height = '20px';
+                fxApp.divEl.innerHTML = `
+                <img src=${fxApp.flagURL}>;
+                `;
+                fxApp.sourceFlags.append(fxApp.divEl);
+            })
+        })
+}
+
+fxApp.getTargetFlag = (currencyCode) => {
+    fxApp.urlFlag = new URL(`https://restcountries.com/v3.1/currency/${currencyCode}`);
+
+    fetch(fxApp.urlFlag).then(function (response) {
+        if (response.ok) {
+            return response.json();
+        }
+    })
+        .then(function (results) {
+            // console.log(results);
+            // console.log(results[0].currencies[currencyCode].symbol);
+            fxApp.targetSymbol = results[0].currencies[currencyCode].symbol;
+            results.forEach(country => {
+                fxApp.flagURL = country.flags.png;
+                fxApp.divEl = document.createElement('div');
+                fxApp.divEl.style.width = '30px';
+                fxApp.divEl.style.height = '20px';
+                fxApp.divEl.style.margin = '5px';
+                fxApp.divEl.innerHTML = `
+                <img src=${fxApp.flagURL}>
+                `;
+                fxApp.targetFlags.append(fxApp.divEl);
+            });
+        })
+}
 
 fxApp.getExchangeRate = () => {
     fxApp.url = new URL("https://api.apilayer.com/currency_data/live");
@@ -143,7 +226,6 @@ fxApp.getExchangeRate = () => {
     });
     
     fetch(fxApp.url).then(function(response){
-
         if (response.ok) {
             return response.json();
         } else {
@@ -154,26 +236,31 @@ fxApp.getExchangeRate = () => {
         fxApp.exchangeRate = results.quotes[`${fxApp.selectedSourceCurrency}${fxApp.selectedTargetCurrency}`];
         fxApp.convertedAmount = (fxApp.amountValue * fxApp.exchangeRate).toFixed(2);
 
+        fxApp.sourceSymbolContainer.innerText = fxApp.sourceSymbol;
+
         fxApp.results.innerHTML = `
         <h2>Exchange Rate</h2>
         <p>${fxApp.exchangeRate}</p>
         <h2>Converted Amount</h2>
-        <p>${fxApp.convertedAmount}</p>
-        `
-        if(fxApp.amountValue <= 0){
-            alert("You have no money please dont travel")
-        }
+        <p>${fxApp.targetSymbol} ${fxApp.convertedAmount}</p>
+        `;
 
+        if(fxApp.amountValue <= 0){
+            alert("You have no money. Please don't travel")
+        } // move this outside of the fetch - maybe conditional in the init with the fxApp.conversion function inside - do not execute fetch if this condition is met (avoids unnecessary API pull)
         fxApp.makeItRain();
+        fxApp.makeItRainListener();
     })
     .catch(err => {
         if (err.message === "Not Found") {
-            alert("we couldn't find that exchange rate! Maybe try a different one?");
+            alert("We couldn't find that exchange rate! Maybe try a different one?");
         } else {
-            alert("Something went wrong and I have no idea what")
+            alert("Something went wrong and I have no idea what");
+            console.log(err)
         }
     })
 }
+
 
 fxApp.timeOfDay = () => {
     const currentDate = new Date();
