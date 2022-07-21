@@ -11,6 +11,13 @@
             margin: 20px auto;
         }
 
+        .switch{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
         i{
             transform: rotate(90deg);
             text-align: center;
