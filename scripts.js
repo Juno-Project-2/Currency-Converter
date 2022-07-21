@@ -6,7 +6,7 @@
     // Fix the background from cutting off when it gets smaller / responsive
     // Make button a 2 way arrow
     // loading animation while waiting for fetch
-    // Display popular places to go in that country as a pop up when 
+    // Display popular places to go in that country as a pop up when you select a currency
 
 // Alice
 // flag section formatting
