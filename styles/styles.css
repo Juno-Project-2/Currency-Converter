@@ -548,11 +548,10 @@ footer {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .flexContainer input[type=number] {
+  .flexContainer input[type=number],
+.flexContainer select,
+.flexContainer button {
     text-align: center;
-    margin: 20px auto;
-  }
-  .flexContainer select {
     margin: 20px auto;
   }
   .flexContainer .switch {
@@ -572,13 +571,17 @@ footer {
             transform: rotate(90deg);
     text-align: center;
   }
-  .earthContainer {
-    height: 100vw;
-    width: 100vh;
-  }
 }
-@media (max-width: 400px) {
+@media (max-width: 430px) {
+  body {
+    margin: 0 auto;
+  }
+  input[type=number],
+button[type=submit] {
+    width: 80%;
+  }
   .flexContainer select {
-    width: 102%;
+    width: 86%;
+    margin-left: 10px;
   }
 }
