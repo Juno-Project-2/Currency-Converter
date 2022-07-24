@@ -10,9 +10,9 @@
     // Make button a 2 way arrow✅
 
 // Alice
-    // reverse flag selection and symbols when inputs change/are switched!
     // Afghani currency symbol displays after the amount instead of before...
 
+    // reverse flag selection and symbols when inputs change/are switched! ✅
     // switch select when switch currency button is clicked ✅
     // accessbility considerations (images that should be background images, switch button, labels) ✅
     // input amount results displayed ✅
