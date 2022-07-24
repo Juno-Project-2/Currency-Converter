@@ -226,6 +226,10 @@ html {
   overflow: hidden;
 }
 
+* {
+  border: solid red 1px;
+}
+
 html {
   font-size: 125%;
 }
@@ -273,6 +277,7 @@ select,
 button {
   height: 50px;
   padding: 10px 20px;
+  width: inherit;
 }
 
 input {
@@ -352,6 +357,12 @@ footer {
   margin: 0 10px;
   -webkit-transform: translateY(25px);
           transform: translateY(25px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .earthContainer {

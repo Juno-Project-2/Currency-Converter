@@ -1,6 +1,6 @@
-// * {
-//     border: solid red 1px;
-// }
+* {
+    border: solid red 1px;
+}
 
 html {
     font-size: 125%;
@@ -40,6 +40,7 @@ select,
 button {
     height: 50px;
     padding: 10px 20px;
+    width: inherit;
 }
 
 input {
@@ -118,4 +119,6 @@ footer{
     width: 10px;
     margin: 0 10px;
     transform: translateY(25px);
+    display: flex;
+    justify-content: center;
 }
