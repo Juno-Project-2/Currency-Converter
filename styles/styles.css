@@ -245,7 +245,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: black;
+  background: black;
 }
 
 h1 {
@@ -261,26 +261,33 @@ h1 {
       -ms-flex-pack: center;
           justify-content: center;
 }
-.flexContainer input,
-.flexContainer .currencyContainer,
-.flexContainer button {
+
+input,
+.currencyContainer,
+button {
   margin: 20px;
-  position: relative;
 }
-.flexContainer input,
-.flexContainer select,
-.flexContainer button {
+
+input,
+select,
+button {
   height: 50px;
   padding: 10px 20px;
 }
-.flexContainer input {
+
+input {
   margin-left: 5px;
   width: 300px;
 }
-.flexContainer input[type=number] {
+input[type=number] {
   -moz-appearance: textfield;
 }
-.flexContainer button {
+
+.currencyContainer {
+  width: 400px;
+}
+
+button {
   width: 300px;
 }
 
@@ -302,6 +309,12 @@ h1 {
   margin: 10px 0;
 }
 
+.flagContainer {
+  width: 30px;
+  height: 20px;
+  margin: 5px;
+}
+
 img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -317,6 +330,8 @@ i {
 
 .contentBox {
   background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  padding: 80px;
 }
 
 footer {
@@ -388,7 +403,9 @@ footer {
 .potato {
   text-align: center;
   position: absolute;
+  top: 0;
   height: 100vh;
+  width: 100%;
   overflow: hidden;
   z-index: 10;
 }
@@ -398,7 +415,7 @@ footer {
   margin: -280px 40px 54px -34px;
   background: url("https://cdn.theatlantic.com/assets/media/img/posts/Screen%20Shot%202013-10-08%20at%209.13.38%20AM.png");
   background-size: contain;
-  -webkit-animation: money 4s linear infinite;
+  -webkit-animation: money 4s linear;
   -moz-animation: money 4s linear;
   width: 200px;
   height: 100px;
@@ -468,15 +485,15 @@ footer {
   }
   50% {
     opacity: 1;
-    -webkit-transform: translate(75px, 600px) rotateZ(360deg) rotateY(540deg);
+    -webkit-transform: translate(75px, 725px) rotateZ(360deg) rotateY(540deg);
   }
   75% {
     opacity: 1;
-    -webkit-transform: translate(125px, 1000px) rotateZ(540deg) rotateY(300deg);
+    -webkit-transform: translate(125px, 1087px) rotateZ(540deg) rotateY(300deg);
   }
   100% {
-    opacity: 0;
-    -webkit-transform: translate(150px, 1200px) rotateZ(700deg);
+    opacity: 1;
+    -webkit-transform: translate(150px, 1450px) rotateZ(700deg);
   }
 }
 .potato span {
@@ -532,13 +549,13 @@ footer {
     opacity: 1;
     -webkit-transform: translate(0, 0px) rotateZ(0deg);
   }
-  75% {
+  95% {
     opacity: 1;
-    -webkit-transform: translate(100px, 1000px) rotateZ(360deg);
+    -webkit-transform: translate(100px, 1350px) rotateZ(360deg);
   }
   100% {
-    opacity: 1;
-    -webkit-transform: translate(150px, 1200px) rotateZ(580deg);
+    opacity: 0;
+    -webkit-transform: translate(100px, 1450px) rotateZ(365deg);
   }
 }
 @media (max-width: 1200px) {

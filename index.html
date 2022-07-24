@@ -60,7 +60,7 @@
             <form action="">
 
                     <div class="flexContainer">
-                        <span class="sourceSymbolContainer"><!-- source currency symbol goes here --></span>
+                        <!-- <span class="sourceSymbolContainer"><!-- source currency symbol goes here --></span> -->
                         <label for="amount" class="sr-only">Enter amount to convert</label>
                         <input type="number" id="amount" placeholder="Enter amount to convert" required>
 
@@ -72,7 +72,7 @@
                             <div class="sourceFlags">
                                 <!-- flag images go here -->
                             </div>
-                        </div>
+                        </div> <!-- end of currencyContainer -->
 
                         <button type="button" class="switch">
                             <i class="fa-solid fa-arrow-right"></i>
@@ -85,14 +85,14 @@
                             </select>
                             <label for="targetCurrency"></label>
                             <div class="targetFlags">
-                            <!-- flag images go here -->
-                        </div>
-                        </div> <!-- end of targetCurrencyContainer -->
+                                <!-- flag images go here -->
+                            </div>
+                        </div> <!-- end of currencyContainer -->
                     </div> <!--end of flexContainer-->
 
                     <div class="flexContainer">
                         <button id="convert" type="submit">Convert</button>
-                    </div>
+                    </div> <!--end of flexContainer-->
 
             </form>
         </main>
@@ -101,7 +101,6 @@
 
         </section>
     </div> <!-- end of .contentBox-->
-
 
     <footer>Created at JunoCollege</footer>
 
