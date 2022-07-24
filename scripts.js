@@ -3,10 +3,10 @@
 
 // Weekend To do
 // Daniel
-    // Fix the background from cutting off when it gets smaller / responsive
-    // Make the flag also switch with the currencies
-    // loading animation while waiting for fetch
-    // Display popular places to go in that country as a pop up when you select a currency
+// TODO: loading animation while waiting for fetch
+// TODO: Make the flag also switch with the currencies
+// TODO: Display popular places to go in that country as a pop up when you select a currency
+// Fix the background from cutting off when it gets smaller / responsive ✅
     // Make button a 2 way arrow✅
 
 // Alice
