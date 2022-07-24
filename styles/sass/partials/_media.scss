@@ -2,29 +2,44 @@
     .flexContainer{
         flex-direction: column;
 
-        input[type=number]{
+        input[type=number],
+        select,
+        button{
             text-align: center;
             margin: 20px auto;
         }
-    
-        select{
-            margin: 20px auto;
+
+        .switch{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
         }
 
         i{
             transform: rotate(90deg);
             text-align: center;
+            margin-bottom: 40px;
         }
     }
-
-    .earthContainer{
-        height: 100vw;
-        width: 100vh;
+    .contentBox{
+        background-color: rgba(0, 0, 0, 0);
+    }
+    .sourceFlags{
+        margin: 0 auto;
     }
 }
 
-@media (max-width: 400px){
+@media (max-width: 430px){
+    body{
+        margin: 0 auto;
+    }
+    input[type=number],
+    button[type=submit]{
+        width: 80%;
+    }
     .flexContainer select{
-        width: 102%;
+        width: 86%;
+        margin-left: 10px;
     }
 }
