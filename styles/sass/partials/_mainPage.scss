@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background: black;
     // background-image: url(../assets/world.jpg); // image from Unsplash (https: //unsplash.com/photos/Xu4Pz7GI9JY)
     // background-size: cover;
 }
@@ -23,35 +23,40 @@ h1 {
     color: white;
 }
 
-.flexContainer{
+.flexContainer {
     display: flex;
     justify-content: center;
+}
 
-    input,
-    .currencyContainer,
-    button {
-        margin: 20px;
-        position: relative;
-    }
-    
-    input,
-    select,
-    button {
-        height: 50px;
-        padding: 10px 20px;
-    }
+input,
+.currencyContainer,
+button {
+    margin: 20px;
+    // position: relative;
+}
 
-    input {
-        margin-left: 5px;
-        width: 300px;
-        &[type=number]{
-            -moz-appearance: textfield;
-        }
-    }
+input,
+select,
+button {
+    height: 50px;
+    padding: 10px 20px;
+}
 
-    button {
-        width: 300px;
+input {
+    margin-left: 5px;
+    width: 300px;
+
+    &[type=number] {
+        -moz-appearance: textfield;
     }
+}
+
+.currencyContainer {
+    width: 400px;
+}
+
+button {
+    width: 300px;
 }
 
 .sourceSymbolContainer {
@@ -67,8 +72,13 @@ h1 {
 .sourceFlags {
     display: flex;
     flex-wrap: wrap;
-    // position: absolute;
     margin: 10px 0;
+}
+
+.flagContainer {
+    width: 30px;
+    height: 20px;
+    margin: 5px;
 }
 
 img {
@@ -86,7 +96,8 @@ i {
 
 .contentBox {
     background-color: rgba(0, 0, 0, 0.7);
-  // z-index: -20;
+    width: 100%;
+    padding: 80px;
 }
 
 

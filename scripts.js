@@ -10,16 +10,26 @@
     // Make button a 2 way arrow✅
 
 // Alice
+
+    // reverse flag selection and symbols when inputs change/are switched!
+    // repetition in variable names...
+    // Afghani currency symbol displays after the amount instead of before...
+
+    // input amount results displayed ✅
+    // style flag in css instead of js ✅
+    // flag section formatting ✅
 // flag section formatting
 // style flag in css instead of js
 // input amount results displayed 
 // Afghani currency symbol displays after the amount instead of before...
 
 // Add flags upon selection/click instead of submit ✅
+
     // Change animations ✅
     // Add flags upon submit ✅
     // Format flag aspect ratio ✅
     // Display currency symbols ✅
+    // Add flags upon selection/click instead of submit ✅
     // Display a banner flags that rotates
 
 
@@ -68,6 +78,7 @@
     // A toggle button to switch the order of the curriencies ✅
 
     const fxApp = {};
+
 
     fxApp.init = () => {
         fxApp.timeOfDay();
@@ -141,7 +152,160 @@
             }
             }
         })
+    };
+
+
+fxApp.currencySwitcher = () => {
+    fxApp.buttonSwitch.addEventListener('click', () => {
+        if (fxApp.sourceCurrency.selectedOptions[0].innerText != 'Choose your source currency') {
+            // fxApp.sourceCurrency = 
+
+            // let selectedSourceSelect = fxApp.sourceCurrency;
+            // let selectedTargetSelect = fxApp.targetCurrency;
+
+            // fxApp.sourceCurrency = selectedTargetSelect;
+            // console.log("source", fxApp.sourceCurrency.selectedOptions[0].value);
+            // fxApp.targetCurrency = selectedSourceSelect;
+            // console.log("target", fxApp.targetCurrency.selectedOptions[0].value);
+
+
+            // let selectedSourceInnerText = fxApp.sourceCurrency.selectedOptions[0].innerText;
+            // let selectedSourcevalue = fxApp.sourceCurrency.selectedOptions[0].value;
+            // console.log(selectedSourcevalue)
+
+            // let selectedTargetInnerText = fxApp.targetCurrency.selectedOptions[0].innerText;
+            // let selectedTargetvalue = fxApp.targetCurrency.selectedOptions[0].value;
+            // console.log(selectedTargetvalue)
+
+            // fxApp.targetCurrency.selectedOptions[0].innerText = selectedSourceInnerText;
+            // fxApp.targetCurrency.selectedOptions[0].value =  selectedSourcevalue;
+            // console.log(fxApp.targetCurrency.selectedOptions[0].value)
+
+            // fxApp.sourceCurrency.selectedOptions[0].innerText = selectedTargetInnerText;
+            // fxApp.sourceCurrency.selectedOptions[0].value = selectedTargetvalue;
+            // console.log(fxApp.sourceCurrency.selectedOptions[0].value)
+        }
+    })
+}
+
+fxApp.submitEvent = () => { 
+    fxApp.form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // clear prior data
+        // fxApp.sourceFlags.innerHTML = '';
+        // fxApp.targetFlags.innerHTML = '';
+        fxApp.moneyLoader.classList.remove('money');
+        fxApp.moneyLoader.classList.remove('potato');
+        
+        fxApp.selectedSourceCurrency = fxApp.sourceCurrency.selectedOptions[0].value;
+        fxApp.selectedTargetCurrency = fxApp.targetCurrency.selectedOptions[0].value;
+        fxApp.amountValue =  fxApp.inputAmount.value;
+        
+        if(fxApp.amountValue <= 0){
+            alert("You have no money. Please don't travel")
+        } else if(fxApp.selectedSourceCurrency !== fxApp.selectedTargetCurrency){
+            fxApp.getExchangeRate();
+        } else {
+            alert('Please select different currencies')
+        }
+        }
+    )}
+
+
+
+fxApp.getExchangeRate = () => {
+    fxApp.url = new URL("https://api.apilayer.com/currency_data/live");
+    
+    fxApp.url.search = new URLSearchParams({
+        apikey: 'nOLSelb7kcBJf73SMIYYzjJ3oaRz3Umn',
+        source: `${fxApp.selectedSourceCurrency}`,
+        currencies: `${fxApp.selectedTargetCurrency}`
+    });
+    
+    fetch(fxApp.url).then(function(response){
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error(response.statusText);
+        }
+    })
+    .then(function(results){
+        fxApp.displayConversion(results)
+
+        fxApp.makeItRain();
+        fxApp.makeItRainListener();
+    })
+    .catch(err => {
+        if (err.message === "Not Found") {
+            alert("We couldn't find that exchange rate! Maybe try a different one?");
+        } else {
+            alert("Something went wrong and I have no idea what");
+            // console.log(err)
+        }
+    })
+}
+
+
+fxApp.displayConversion = (results) => {
+    fxApp.exchangeRate = results.quotes[`${fxApp.selectedSourceCurrency}${fxApp.selectedTargetCurrency}`];
+        fxApp.convertedAmount = (fxApp.amountValue * fxApp.exchangeRate).toFixed(2);
+
+        // fxApp.sourceSymbolContainer.innerText = fxApp.sourceSymbol;
+
+        fxApp.results.innerHTML = `
+        <h2>Exchange Rate</h2>
+        <p>${fxApp.exchangeRate}</p>
+        <h2>Input Amount</h2>
+        <p>${fxApp.sourceSymbol} ${fxApp.amountValue}</p>
+        <h2>Converted Amount</h2>
+        <p>${fxApp.targetSymbol} ${fxApp.convertedAmount}</p>
+        `;
+}
+
+
+fxApp.makeItRainListener = () => {
+    fxApp.lastAnimatedSpan.addEventListener('animationend', () => {
+        fxApp.moneyLoader.style.zIndex = "-10";
+    });
+    fxApp.firstAnimatedSpan.addEventListener('animationstart', () => {
+        fxApp.moneyLoader.style.zIndex = "10";
+    });
+}
+
+
+fxApp.makeItRain = () => {
+    if (Number(fxApp.convertedAmount) > Number(fxApp.amountValue)){
+        fxApp.moneyLoader.classList.add('money');
+    } else{
+        fxApp.moneyLoader.classList.add('potato');
     }
+}
+
+
+fxApp.getSourceFlag = (currencyCode) => {
+    fxApp.urlFlag = new URL(`https://restcountries.com/v3.1/currency/${currencyCode}`);
+
+    fetch(fxApp.urlFlag).then(function (response) {
+        if (response.ok) {
+            return response.json();
+        }
+    })
+    .then(function (results) {
+        // console.log(results);
+        fxApp.sourceFlags.innerHTML = '';
+        fxApp.sourceSymbol = results[0].currencies[currencyCode].symbol;
+        results.forEach(country => {
+            fxApp.flagURL = country.flags.png;
+            fxApp.divEl = document.createElement('div');
+            fxApp.divEl.classList.add('flagContainer');
+            fxApp.divEl.innerHTML = `
+            <img src=${fxApp.flagURL}>;
+            `;
+            fxApp.sourceFlags.append(fxApp.divEl);
+        });
+    });
+}
     
     fxApp.changeEvent = () => {
         fxApp.selects.forEach(dropdown => {
@@ -293,6 +457,5 @@
                 });
             })
     }
-    
     
     fxApp.init();
