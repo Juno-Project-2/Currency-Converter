@@ -3,9 +3,9 @@
 
 // Weekend To do
 // Daniel
-// TODO: loading animation while waiting for fetch
-// TODO: Make the flag also switch with the currencies
-// TODO: Display popular places to go in that country as a pop up when you select a currency
+// loading animation while waiting for fetch
+// Make the flag also switch with the currencies
+// Display popular places to go in that country as a pop up when you select a currency
 // Fix the background from cutting off when it gets smaller / responsive ✅
     // Make button a 2 way arrow✅
 
@@ -305,7 +305,7 @@ fxApp.getSourceFlag = (currencyCode) => {
             fxApp.sourceFlags.append(fxApp.divEl);
         });
     });
-}
+    }
     
     fxApp.changeEvent = () => {
         fxApp.selects.forEach(dropdown => {
@@ -358,7 +358,6 @@ fxApp.getSourceFlag = (currencyCode) => {
         fxApp.exchangeRate = results.quotes[`${fxApp.selectedSourceCurrency}${fxApp.selectedTargetCurrency}`];
             fxApp.convertedAmount = (fxApp.amountValue * fxApp.exchangeRate).toFixed(2);
     
-            fxApp.sourceSymbolContainer.innerText = fxApp.sourceSymbol;
     
             fxApp.results.innerHTML = `
             <h2>Exchange Rate</h2>
@@ -396,8 +395,8 @@ fxApp.getSourceFlag = (currencyCode) => {
             fxApp.moneyLoader.style.zIndex = "10";
         });
     }
-    
-    
+
+        
     fxApp.makeItRain = () => {
         if (Number(fxApp.convertedAmount) > Number(fxApp.amountValue)){
             fxApp.moneyLoader.classList.add('money');
