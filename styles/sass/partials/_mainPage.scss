@@ -1,6 +1,6 @@
-* {
-    border: solid red 1px;
-}
+// * {
+//     border: solid red 1px;
+// }
 
 html {
     font-size: 125%;
@@ -101,16 +101,17 @@ i {
 }
 
 
-footer{
+footer {
     text-align: center;
     color: white;
     position: fixed;
     bottom: 0;
 }
 
-.conversion{
+.results {
     color: white;
     text-align: center;
+    // display: flex;
 }
 
 .flexContainer .switch {
