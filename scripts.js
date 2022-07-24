@@ -160,30 +160,30 @@ fxApp.currencySwitcher = () => {
         if (fxApp.sourceCurrency.selectedOptions[0].innerText != 'Choose your source currency') {
             // fxApp.sourceCurrency = 
 
-            // let selectedSourceSelect = fxApp.sourceCurrency;
-            // let selectedTargetSelect = fxApp.targetCurrency;
+            let selectedSourceSelect = fxApp.sourceCurrency;
+            let selectedTargetSelect = fxApp.targetCurrency;
 
-            // fxApp.sourceCurrency = selectedTargetSelect;
-            // console.log("source", fxApp.sourceCurrency.selectedOptions[0].value);
-            // fxApp.targetCurrency = selectedSourceSelect;
-            // console.log("target", fxApp.targetCurrency.selectedOptions[0].value);
+            fxApp.sourceCurrency = selectedTargetSelect;
+            console.log("source", fxApp.sourceCurrency.selectedOptions[0].value);
+            fxApp.targetCurrency = selectedSourceSelect;
+            console.log("target", fxApp.targetCurrency.selectedOptions[0].value);
 
 
-            // let selectedSourceInnerText = fxApp.sourceCurrency.selectedOptions[0].innerText;
-            // let selectedSourcevalue = fxApp.sourceCurrency.selectedOptions[0].value;
-            // console.log(selectedSourcevalue)
+            let selectedSourceInnerText = fxApp.sourceCurrency.selectedOptions[0].innerText;
+            let selectedSourcevalue = fxApp.sourceCurrency.selectedOptions[0].value;
+            console.log(selectedSourcevalue)
 
-            // let selectedTargetInnerText = fxApp.targetCurrency.selectedOptions[0].innerText;
-            // let selectedTargetvalue = fxApp.targetCurrency.selectedOptions[0].value;
-            // console.log(selectedTargetvalue)
+            let selectedTargetInnerText = fxApp.targetCurrency.selectedOptions[0].innerText;
+            let selectedTargetvalue = fxApp.targetCurrency.selectedOptions[0].value;
+            console.log(selectedTargetvalue)
 
-            // fxApp.targetCurrency.selectedOptions[0].innerText = selectedSourceInnerText;
-            // fxApp.targetCurrency.selectedOptions[0].value =  selectedSourcevalue;
-            // console.log(fxApp.targetCurrency.selectedOptions[0].value)
+            fxApp.targetCurrency.selectedOptions[0].innerText = selectedSourceInnerText;
+            fxApp.targetCurrency.selectedOptions[0].value =  selectedSourcevalue;
+            console.log(fxApp.targetCurrency.selectedOptions[0].value)
 
-            // fxApp.sourceCurrency.selectedOptions[0].innerText = selectedTargetInnerText;
-            // fxApp.sourceCurrency.selectedOptions[0].value = selectedTargetvalue;
-            // console.log(fxApp.sourceCurrency.selectedOptions[0].value)
+            fxApp.sourceCurrency.selectedOptions[0].innerText = selectedTargetInnerText;
+            fxApp.sourceCurrency.selectedOptions[0].value = selectedTargetvalue;
+            console.log(fxApp.sourceCurrency.selectedOptions[0].value)
         }
     })
 }
