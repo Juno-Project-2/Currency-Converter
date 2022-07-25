@@ -1,31 +1,6 @@
 // https://restcountries.com/#api-endpoints-v3-currency
 // https://apilayer.com/marketplace/currency_data-api#
 
-// Weekend To do
-// Daniel
-// loading animation while waiting for fetch
-// Make the flag also switch with the currencies
-// Display popular places to go in that country as a pop up when you select a currency
-// Fix the background from cutting off when it gets smaller / responsive ✅
-    // Make button a 2 way arrow✅
-
-// Alice
-    // Afghani currency symbol displays after the amount instead of before...
-
-    // reverse flag selection and symbols when inputs change/are switched! ✅
-    // switch select when switch currency button is clicked ✅
-    // accessbility considerations (images that should be background images, switch button, labels) ✅
-    // input amount results displayed ✅
-    // style flag in css instead of js ✅
-    // flag section formatting ✅
-    // Add flags upon selection/click instead of submit ✅
-    // Change animations ✅
-    // Add flags upon submit ✅
-    // Format flag aspect ratio ✅
-    // Display currency symbols ✅
-    // Add flags upon selection/click instead of submit ✅
-
-
 // Pseudo Code!!
 // API KEY      keeps changing
 // HTML
@@ -57,8 +32,6 @@
     // add alt text for any images/put aria hidden=true for images intended to be background image
     // Display popular places to go in that country as a pop up when you select a currency
     // The drop down where you can select different currencies based on the API
-    
-
     // Display currency symbol ✅
     // Display The flags of the common curriencies selected ✅
     // remove fieldset ✅
@@ -68,6 +41,8 @@
     // Change earth image depending on time of day ✅
     // Animate the backgroung image ✅
     // A toggle button to switch the order of the curriencies ✅
+    
+    
 
 const fxApp = {};
 
@@ -136,13 +111,9 @@ fxApp.currencySwitcher = () => {
 
             let initialSourceOption = fxApp.sourceCurrency.value;
             let initialTargetOption = fxApp.targetCurrency.value;
-            // console.log(initialSourceOption);
-            // console.log(initialTargetOption);
 
             fxApp.sourceCurrency.value = initialTargetOption;
             fxApp.targetCurrency.value = initialSourceOption;
-            // console.log(sourceCurrency.value)
-            // console.log(targetCurrency.value)
             fxApp.getSourceFlag(fxApp.sourceCurrency.value)
             fxApp.getTargetFlag(fxApp.targetCurrency.value)
         }
@@ -153,14 +124,10 @@ fxApp.submitEvent = () => {
     fxApp.form.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // clear prior data
-        // fxApp.sourceFlags.innerHTML = '';
-        // fxApp.targetFlags.innerHTML = '';
+  
         fxApp.moneyLoader.classList.remove('money');
         fxApp.moneyLoader.classList.remove('potato');
         
-        // fxApp.selectedSourceCurrency = fxApp.sourceCurrency.selectedOptions[0].value;
-        // fxApp.selectedTargetCurrency = fxApp.targetCurrency.selectedOptions[0].value;
         fxApp.selectedSourceCurrency = fxApp.sourceCurrency.value;
         fxApp.selectedTargetCurrency = fxApp.targetCurrency.value;
 
@@ -203,7 +170,6 @@ fxApp.getExchangeRate = () => {
             alert("We couldn't find that exchange rate! Maybe try a different one?");
         } else {
             alert("Something went wrong and I have no idea what");
-            // console.log(err)
         }
     })
 }
@@ -211,8 +177,6 @@ fxApp.getExchangeRate = () => {
 fxApp.displayConversion = (results) => {
     fxApp.exchangeRate = results.quotes[`${fxApp.selectedSourceCurrency}${fxApp.selectedTargetCurrency}`];
         fxApp.convertedAmount = (fxApp.amountValue * fxApp.exchangeRate).toFixed(2);
-
-        // fxApp.sourceSymbolContainer.innerText = fxApp.sourceSymbol;
 
         fxApp.results.innerHTML = `
         <h2>Exchange Rate</h2>
@@ -250,7 +214,6 @@ fxApp.getSourceFlag = (currencyCode) => {
         }
     })
     .then(function (results) {
-        // console.log(results);
         fxApp.sourceFlags.innerHTML = '';
         fxApp.sourceSymbol = results[0].currencies[currencyCode].symbol;
         results.forEach(country => {

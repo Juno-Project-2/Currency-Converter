@@ -332,13 +332,16 @@ i {
 .contentBox {
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
+  padding: 20px 0;
 }
 
 footer {
   text-align: center;
-  color: white;
+  color: black;
   position: fixed;
   bottom: 0;
+  background-color: grey;
+  width: 100%;
 }
 
 .results {
@@ -359,6 +362,12 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.wrapper {
+  max-width: 1300px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .earthContainer {
@@ -552,7 +561,7 @@ footer {
     -webkit-transform: translate(0, 0px) rotateZ(0deg);
   }
   95% {
-    opacity: 1;
+    opacity: 0.5;
     -webkit-transform: translate(100px, 1350px) rotateZ(360deg);
   }
   100% {
