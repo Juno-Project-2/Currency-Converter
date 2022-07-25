@@ -1,48 +1,25 @@
-// https://restcountries.com/#api-endpoints-v3-currency
-// https://apilayer.com/marketplace/currency_data-api#
+// data retreived from https://restcountries.com/#api-endpoints-v3-currency
+// data retreived from https://apilayer.com/marketplace/currency_data-api#
 
 // Pseudo Code!!
-// API KEY      keeps changing
-// HTML
-// CSS
-    // Responsiveness
-    // Formatting to make text clearer 
-// Create form ✅
+// Create form 
     // Create two dropdowns for source currency and target currency options and populate with the currency object
     // Create field to accept dollar amount for conversion
     // Create submit button
     // prevent default on form
-// Add event listener to form on submit ✅
+// Add event listener to form on submit 
     // on submit, store values of source and target currencies in variables
     // store dollar amount in variable
     // do API call to obtain exchange rate
     // convert dollar amount based on exchange rate (rounded to two decimal places)
     // append dollar amount and exchange rate to the page
     // clear form to accept new inputs
-// Error handling ✅
+// Error handling 
     // data validation for dollar amount input (numbers only - no strings, rounded to two decimal places)
     // make all fields required/mandatory
     // if user selects same currency, display message "The source and target currencies must be different"
     // if the user input a value of 0, display message "You have no money please input a value"
     // HTTP status code error
-
-// Stretch goals
-    // loading animation while waiting for fetch
-    // other styling
-    // add alt text for any images/put aria hidden=true for images intended to be background image
-    // Display popular places to go in that country as a pop up when you select a currency
-    // The drop down where you can select different currencies based on the API
-    // Display currency symbol ✅
-    // Display The flags of the common curriencies selected ✅
-    // remove fieldset ✅
-    // organize code ✅
-    // If the conversion rate gives you more money have money rain down the screen  https://codepen.io/lihz27/pen/bxpEbw ✅
-    // If the conversion rate gives you less money have potatoes rain down the screen ✅
-    // Change earth image depending on time of day ✅
-    // Animate the backgroung image ✅
-    // A toggle button to switch the order of the curriencies ✅
-    
-    
 
 const fxApp = {};
 
@@ -147,7 +124,7 @@ fxApp.getExchangeRate = () => {
     fxApp.url = new URL("https://api.apilayer.com/currency_data/live");
     
     fxApp.url.search = new URLSearchParams({
-        apikey: 'nOLSelb7kcBJf73SMIYYzjJ3oaRz3Umn',
+        apikey: 'IAIYJuZYyOlvPkoJrTYJKCiUnf9CUHc0',
         source: `${fxApp.selectedSourceCurrency}`,
         currencies: `${fxApp.selectedTargetCurrency}`
     });
