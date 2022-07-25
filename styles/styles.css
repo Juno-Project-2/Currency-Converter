@@ -226,10 +226,6 @@ html {
   overflow: hidden;
 }
 
-* {
-  border: solid red 1px;
-}
-
 html {
   font-size: 125%;
 }
@@ -345,7 +341,7 @@ footer {
   bottom: 0;
 }
 
-.conversion {
+.results {
   color: white;
   text-align: center;
 }
@@ -593,9 +589,6 @@ footer {
             transform: rotate(90deg);
     text-align: center;
     margin-bottom: 40px;
-  }
-  .sourceFlags {
-    margin: 0 auto;
   }
   .flexContainer,
 .currencyContainer,
