@@ -1,26 +1,6 @@
 // data retreived from https://restcountries.com/#api-endpoints-v3-currency
 // data retreived from https://apilayer.com/marketplace/currency_data-api#
 
-// Pseudo Code!!
-// Create form 
-    // Create two dropdowns for source currency and target currency options and populate with the currency object
-    // Create field to accept dollar amount for conversion
-    // Create submit button
-    // prevent default on form
-// Add event listener to form on submit 
-    // on submit, store values of source and target currencies in variables
-    // store dollar amount in variable
-    // do API call to obtain exchange rate
-    // convert dollar amount based on exchange rate (rounded to two decimal places)
-    // append dollar amount and exchange rate to the page
-    // clear form to accept new inputs
-// Error handling 
-    // data validation for dollar amount input (numbers only - no strings, rounded to two decimal places)
-    // make all fields required/mandatory
-    // if user selects same currency, display message "The source and target currencies must be different"
-    // if the user input a value of 0, display message "You have no money please input a value"
-    // HTTP status code error
-
 const fxApp = {};
 
 fxApp.background = document.querySelector('.earth');
@@ -71,7 +51,6 @@ fxApp.populateDropDown = () => {
 fxApp.inputEvent = () => {
     fxApp.selects.forEach(dropdown => {
         dropdown.addEventListener('input', () => {
-            console.log("hello")
             if (dropdown.id == 'sourceCurrency') {
                 fxApp.getSourceFlag(dropdown.value);
             } else {
@@ -84,7 +63,6 @@ fxApp.inputEvent = () => {
 fxApp.currencySwitcher = () => {
     fxApp.buttonSwitch.addEventListener('click', () => {
         if (fxApp.sourceCurrency.selectedOptions[0].innerText != 'Choose your source currency') {
-            // console.log(fxApp.sourceCurrency.value)
 
             let initialSourceOption = fxApp.sourceCurrency.value;
             let initialTargetOption = fxApp.targetCurrency.value;
@@ -101,7 +79,6 @@ fxApp.submitEvent = () => {
     fxApp.form.addEventListener('submit', (e) => {
         e.preventDefault();
         
-  
         fxApp.moneyLoader.classList.remove('money');
         fxApp.moneyLoader.classList.remove('potato');
         
